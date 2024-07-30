@@ -5,3 +5,6 @@ export const getServiceTickets = () => {
 };
 
 //export a function here that gets a ticket by id
+export const getSingleServiceTicket = (id) => {
+  return fetch(`${baseUrl}/servicetickets/${id}`).then((r) => r.json());
+}
