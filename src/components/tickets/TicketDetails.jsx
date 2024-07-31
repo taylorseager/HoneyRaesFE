@@ -11,7 +11,6 @@ export default function TicketDetails() {
   //add useEffect here to get the ticket details from the API
   useEffect(() => {
     getSingleServiceTicket(id).then(setTicket);
-    console.warn(ticket)
   }, []);
 
   if (!ticket) {
@@ -31,7 +30,7 @@ export default function TicketDetails() {
         </tr>
         <tr>
           <th scope="row">Emergency</th>
-          <td>{ticket.emergency ? "yes" : "no"}</td>
+          <td>{ticket.emergency ? "Yes" : "No"}</td>
         </tr>
         <tr>
           <th scope="row">Employee</th>

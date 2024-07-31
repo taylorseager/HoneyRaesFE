@@ -8,3 +8,12 @@ export const getServiceTickets = () => {
 export const getSingleServiceTicket = (id) => {
   return fetch(`${baseUrl}/servicetickets/${id}`).then((r) => r.json());
 }
+
+export const deleteSingleTicket = (id) => new Promise((resolve, reject) => {
+  return fetch(`${baseUrl}/servicetickets/${id}`, {
+    method: 'DELETE',
+  })
+    .then((response) => response.text())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
