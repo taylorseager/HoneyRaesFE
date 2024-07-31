@@ -17,3 +17,12 @@ export const deleteSingleTicket = (id) => new Promise((resolve, reject) => {
     .then((data) => resolve((data)))
     .catch(reject);
 });
+
+export const completeThisTicket = (id) => new Promise((resolve, reject) => {
+  return fetch(`${baseUrl}/servicetickets/${id}/complete`, {
+    method: 'PATCH',
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
