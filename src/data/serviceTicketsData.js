@@ -10,7 +10,7 @@ export const getSingleServiceTicket = (id) => {
 }
 
 export const deleteSingleTicket = (id) => new Promise((resolve, reject) => {
-  return fetch(`${baseUrl}/servicetickets/${id}`, {
+ fetch(`${baseUrl}/servicetickets/${id}`, {
     method: 'DELETE',
   })
     .then((response) => response.text())
@@ -19,10 +19,13 @@ export const deleteSingleTicket = (id) => new Promise((resolve, reject) => {
 });
 
 export const completeThisTicket = (id) => new Promise((resolve, reject) => {
-  return fetch(`${baseUrl}/servicetickets/${id}/complete`, {
-    method: 'PATCH',
+  fetch(`${baseUrl}/servicetickets/${id}/complete`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((data) => resolve((data)))
     .catch(reject);
 });

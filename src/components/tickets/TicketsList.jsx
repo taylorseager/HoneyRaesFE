@@ -14,6 +14,10 @@ export default function TicketsList() {
     }
   };
 
+  const completeServiceTicket = (id) => {
+    completeThisTicket(id).then(() => getServiceTickets()).then(data => setTickets(data))
+  }
+
   useEffect(() => {
     getServiceTickets().then(setTickets);
   }, []);
@@ -42,12 +46,9 @@ export default function TicketsList() {
             <td>
             <Button color="danger" onClick={() => deleteThisTicket(t.id)} className="m-2">DELETE</Button>
             </td>
-            {/* <td>
-            <Button color="success" onClick={completeThisTicket} className="m-2">COMPLETE</Button>
-            </td> */}
-            {t.employeeId != null && (t.dateCompleted === null) ? (
-        <td>
-        <Button color="success" onClick={completeThisTicket} className="m-2">COMPLETE</Button>
+              {t.employeeId != null && (t.dateCompleted === null) ? (
+            <td>
+        <Button color="success" onClick={() => completeServiceTicket(t.id)} className="m-2">COMPLETE</Button>
         </td>
       ) : (
         <td>already completed or not assigned</td>
