@@ -51,7 +51,7 @@ export default function TicketsList() {
         <Button color="success" onClick={() => completeServiceTicket(t.id)} className="m-2">COMPLETE</Button>
         </td>
       ) : (
-        <td>already completed or not assigned</td>
+        <td>Ticket already completed or has not been assigned.</td>
       )}
           </tr> 
         ))}
