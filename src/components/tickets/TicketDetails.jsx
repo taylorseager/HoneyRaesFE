@@ -22,7 +22,7 @@ export default function TicketDetails() {
       <tbody>
         <tr>
           <th scope="row">Customer</th>
-          <td>{ticket.customer.name}</td>
+          <td>{ticket.customer.firstName}</td>
         </tr>
         <tr>
           <th scope="row">Description</th>
@@ -34,7 +34,7 @@ export default function TicketDetails() {
         </tr>
         <tr>
           <th scope="row">Employee</th>
-          <td>{ticket.employee?.name || "Unassigned"}</td>
+          <td>{ticket.employee?.firstName || "Unassigned"}</td>
         </tr>
         <tr>
           <th scope="row">Completed?</th>
